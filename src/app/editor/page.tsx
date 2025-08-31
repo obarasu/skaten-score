@@ -8,8 +8,8 @@ import { ElementCard } from '@/components/ElementCard';
 import { ScoreSummary } from '@/components/ScoreSummary';
 import { useProgramStore } from '@/store/program';
 import { getClassById, validateProgram } from '@/lib/rules';
-import { programToURL, downloadJSON, urlToProgram } from '@/lib/serialize';
-import { ArrowLeft, Share2, Download, Upload } from 'lucide-react';
+import { programToURL, urlToProgram } from '@/lib/serialize';
+import { ArrowLeft, Share2 } from 'lucide-react';
 
 function EditorPageContent() {
   const router = useRouter();
@@ -59,35 +59,6 @@ function EditorPageContent() {
     }
   };
   
-  const handleDownload = () => {
-    const filename = `${classConfig?.label}-${program.discipline}-program.json`;
-    downloadJSON(program, filename);
-  };
-  
-  const handleUpload = () => {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = '.json';
-    
-    input.onchange = (e) => {
-      const file = (e.target as HTMLInputElement).files?.[0];
-      if (!file) return;
-      
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        try {
-          const json = e.target?.result as string;
-          const program = JSON.parse(json);
-          loadProgram(program);
-        } catch (error) {
-          alert('ファイルの読み込みに失敗しました');
-        }
-      };
-      reader.readAsText(file);
-    };
-    
-    input.click();
-  };
   
   if (!isLoaded || !classConfig) {
     return (
@@ -103,44 +74,28 @@ function EditorPageContent() {
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-4">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
             <Button
               variant="outline"
               onClick={() => router.push('/')}
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 w-fit"
             >
               <ArrowLeft className="h-4 w-4" />
               戻る
             </Button>
             <div>
-              <h1 className="text-3xl font-bold">プログラム編集</h1>
-              <p className="text-gray-600 dark:text-gray-400">
+              <h1 className="text-2xl sm:text-3xl font-bold">プログラム編集</h1>
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
                 {classConfig.label} - {program.discipline === 'SP' ? 'ショートプログラム' : 'フリースケーティング'}
               </p>
             </div>
           </div>
           
-          <div className="flex gap-2">
-            <Button
-              variant="outline"
-              onClick={handleUpload}
-              className="flex items-center gap-2"
-            >
-              <Upload className="h-4 w-4" />
-              アップロード
-            </Button>
-            <Button
-              variant="outline"
-              onClick={handleDownload}
-              className="flex items-center gap-2"
-            >
-              <Download className="h-4 w-4" />
-              ダウンロード
-            </Button>
+          <div className="flex flex-wrap gap-2">
             <Button
               onClick={handleShare}
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 text-xs sm:text-sm"
             >
               <Share2 className="h-4 w-4" />
               共有
