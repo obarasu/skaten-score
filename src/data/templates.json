@@ -1,0 +1,63 @@
+{
+  "combos": [
+    {
+      "label": "3T+2T",
+      "atoms": [
+        {"turn": 3, "code": "T"},
+        {"turn": 2, "code": "T"}
+      ]
+    },
+    {
+      "label": "2A+2T",
+      "atoms": [
+        {"turn": 2, "code": "A"},
+        {"turn": 2, "code": "T"}
+      ]
+    },
+    {
+      "label": "3F+1Eu+3S",
+      "atoms": [
+        {"turn": 3, "code": "F"},
+        {"turn": 1, "code": "Eu"},
+        {"turn": 3, "code": "S"}
+      ]
+    },
+    {
+      "label": "3Lz+2T",
+      "atoms": [
+        {"turn": 3, "code": "Lz"},
+        {"turn": 2, "code": "T"}
+      ]
+    },
+    {
+      "label": "2A+1Eu+2S",
+      "atoms": [
+        {"turn": 2, "code": "A"},
+        {"turn": 1, "code": "Eu"},
+        {"turn": 2, "code": "S"}
+      ]
+    },
+    {
+      "label": "3Lo+2T",
+      "atoms": [
+        {"turn": 3, "code": "Lo"},
+        {"turn": 2, "code": "T"}
+      ]
+    },
+    {
+      "label": "3S+2T",
+      "atoms": [
+        {"turn": 3, "code": "S"},
+        {"turn": 2, "code": "T"}
+      ]
+    },
+    {
+      "label": "2A+2T+2Lo",
+      "atoms": [
+        {"turn": 2, "code": "A"},
+        {"turn": 2, "code": "T"},
+        {"turn": 2, "code": "Lo"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "classes": [
+    {
+      "id": "shokyu",
+      "label": "初級",
+      "disciplines": [
+        {
+          "id": "FS",
+          "maxElements": 5,
+          "limits": {
+            "jumps": { "min": 0, "max": 4 },
+            "spins": { "min": 0, "max": 1 },
+            "steps": { "min": 0, "max": 0 }
+          },
+          "notes": "FSのみ。ジャンプは最大4（うちコンボ/シークエンス1つ可）。同一種類は2回まで。ダブル不可。ワルツ可。スピンは1つ（レベルB相当）"
+        }
+      ]
+    },
+    {
+      "id": "kyu1",
+      "label": "1級",
+      "disciplines": [
+        {
+          "id": "FS",
+          "maxElements": 6,
+          "limits": {
+            "jumps": { "min": 0, "max": 4 },
+            "spins": { "min": 0, "max": 1 },
+            "steps": { "min": 0, "max": 1 }
+          },
+          "notes": "FSのみ。ジャンプ最大4（コンボ/シークエンス1つ可）。同一種類2回まで。ダブル不可。ワルツ不可。スピン1・ステップ1（レベルB相当）"
+        }
+      ]
+    },
+    {
+      "id": "kyu2",
+      "label": "2級",
+      "disciplines": [
+        {
+          "id": "FS",
+          "maxElements": 6,
+          "limits": {
+            "jumps": { "min": 0, "max": 4 },
+            "spins": { "min": 0, "max": 1 },
+            "steps": { "min": 0, "max": 1 }
+          },
+          "notes": "FSのみ。ジャンプ最大4（コンボ/シークエンスは合計2つまで）。同一種類2回まで。ダブル可（トリプル不可）。要アクセル型1つ（ワルツを含む）。スピン1・ステップ1（レベルB相当）"
+        }
+      ]
+    },
+    {
+      "id": "novice",
+      "label": "ノービス",
+      "disciplines": [
+        {
+          "id": "SP",
+          "maxElements": 7,
+          "limits": {
+            "jumps": { "min": 3, "max": 4 },
+            "spins": { "min": 2, "max": 3 },
+            "steps": { "min": 1, "max": 1 }
+          },
+          "notes": "ノービスSPの要素構成"
+        },
+        {
+          "id": "FS",
+          "maxElements": 11,
+          "limits": {
+            "jumps": { "min": 5, "max": 7 },
+            "spins": { "min": 2, "max": 3 },
+            "steps": { "min": 1, "max": 1 }
+          },
+          "notes": "ノービスFSの要素構成"
+        }
+      ]
+    },
+    {
+      "id": "junior",
+      "label": "ジュニア",
+      "disciplines": [
+        {
+          "id": "SP",
+          "maxElements": 7,
+          "limits": {
+            "jumps": { "min": 3, "max": 4 },
+            "spins": { "min": 2, "max": 3 },
+            "steps": { "min": 1, "max": 1 }
+          },
+          "notes": "ジュニアSPの要素構成"
+        },
+        {
+          "id": "FS",
+          "maxElements": 12,
+          "limits": {
+            "jumps": { "min": 5, "max": 8 },
+            "spins": { "min": 2, "max": 3 },
+            "steps": { "min": 1, "max": 1 }
+          },
+          "notes": "ジュニアFSの要素構成"
+        }
+      ]
+    },
+    {
+      "id": "senior",
+      "label": "シニア",
+      "disciplines": [
+        {
+          "id": "SP",
+          "maxElements": 7,
+          "limits": {
+            "jumps": { "min": 3, "max": 4 },
+            "spins": { "min": 2, "max": 3 },
+            "steps": { "min": 1, "max": 1 }
+          },
+          "notes": "シニアSPの要素構成"
+        },
+        {
+          "id": "FS",
+          "maxElements": 13,
+          "limits": {
+            "jumps": { "min": 6, "max": 8 },
+            "spins": { "min": 3, "max": 3 },
+            "steps": { "min": 1, "max": 2 }
+          },
+          "notes": "シニアFSの要素構成"
+        }
+      ]
+    },
+    {
+      "id": "3grade",
+      "label": "3級",
+      "disciplines": [
+        {
+          "id": "FS",
+          "maxElements": 8,
+          "limits": {
+            "jumps": { "min": 4, "max": 5 },
+            "spins": { "min": 2, "max": 2 },
+            "steps": { "min": 1, "max": 1 }
+          },
+          "notes": "3級FSの要素構成"
+        }
+      ]
+    },
+    {
+      "id": "4grade",
+      "label": "4級",
+      "disciplines": [
+        {
+          "id": "FS",
+          "maxElements": 9,
+          "limits": {
+            "jumps": { "min": 4, "max": 6 },
+            "spins": { "min": 2, "max": 2 },
+            "steps": { "min": 1, "max": 1 }
+          },
+          "notes": "4級FSの要素構成"
+        }
+      ]
+    },
+    {
+      "id": "5grade",
+      "label": "5級",
+      "disciplines": [
+        {
+          "id": "FS",
+          "maxElements": 10,
+          "limits": {
+            "jumps": { "min": 5, "max": 6 },
+            "spins": { "min": 2, "max": 3 },
+            "steps": { "min": 1, "max": 1 }
+          },
+          "notes": "5級FSの要素構成"
+        }
+      ]
+    }
+  ]
+}

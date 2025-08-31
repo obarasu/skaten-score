@@ -1,0 +1,30 @@
+{
+  "combo": {
+    "maxJumpsPerElement": 3,
+    "allowSequence": true,
+    "allowEuler": true,
+    "eulerCode": "Eu",
+    "eulerConstraints": {
+      "position": "middleOnly",
+      "minTurnsBefore": 1,
+      "minTurnsAfter": 1
+    },
+    "maxCombosPerProgram": null,
+    "duplicateRules": {
+      "enable": false,
+      "perJumpLimits": {}
+    }
+  },
+  "sequence": {
+    "id": "SEQ",
+    "baseMultiplier": 0.8,
+    "trigger": {
+      "gesture": "toggleInUI"
+    }
+  },
+  "callPenalties": {
+    "q": -1,
+    "e": -2,
+    "!": -1
+  }
+}

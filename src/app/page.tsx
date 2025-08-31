@@ -1,43 +1,114 @@
+'use client';
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { ClassSelector } from '@/components/ClassSelector';
+import { DisciplineSelector } from '@/components/DisciplineSelector';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { getClassById } from '@/lib/rules';
+import { DisciplineId } from '@/lib/types';
+import { useProgramStore } from '@/store/program';
+
 export default function Home() {
+  const router = useRouter();
+  const { setClass, setDiscipline } = useProgramStore();
+  const [selectedClass, setSelectedClass] = useState<string>('novice');
+  const [selectedDiscipline, setSelectedDiscipline] = useState<DisciplineId>('SP');
+  
+  const classConfig = getClassById(selectedClass);
+  const hasSingleDiscipline = classConfig?.disciplines.length === 1;
+  
+  const handleStart = () => {
+    setClass(selectedClass);
+    const discipline = hasSingleDiscipline 
+      ? classConfig!.disciplines[0].id 
+      : selectedDiscipline;
+    setDiscipline(discipline);
+    router.push('/editor');
+  };
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+    <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4 py-16">
         <header className="text-center mb-12">
-          <h1 className="text-6xl font-bold text-white mb-4">
-            Skaten
+          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Skaten Score Calculator
           </h1>
-          <p className="text-xl text-gray-300">
-            Modern Web Application Platform
+          <p className="text-xl text-gray-600 dark:text-gray-300">
+            フィギュアスケート得点計算システム
           </p>
         </header>
 
-        <section className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 hover:bg-white/20 transition-all">
-            <h2 className="text-2xl font-semibold text-white mb-3">Fast</h2>
-            <p className="text-gray-300">
-              Built with Next.js 15 and optimized for performance
-            </p>
-          </div>
+        <Card className="max-w-2xl mx-auto">
+          <CardHeader>
+            <CardTitle>プログラム設定</CardTitle>
+            <CardDescription>
+              大会の級と種目を選択してプログラムの採点を開始します
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <ClassSelector 
+              value={selectedClass}
+              onChange={setSelectedClass}
+            />
+            
+            {!hasSingleDiscipline && (
+              <DisciplineSelector
+                classId={selectedClass}
+                value={selectedDiscipline}
+                onChange={setSelectedDiscipline}
+              />
+            )}
+            
+            <div className="pt-4">
+              <Button 
+                onClick={handleStart}
+                className="w-full"
+                size="lg"
+              >
+                採点を開始
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
 
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 hover:bg-white/20 transition-all">
-            <h2 className="text-2xl font-semibold text-white mb-3">Scalable</h2>
-            <p className="text-gray-300">
-              Deployed on Vercel with automatic scaling and edge functions
-            </p>
+        <div className="mt-12 max-w-4xl mx-auto">
+          <h2 className="text-2xl font-semibold mb-6 text-center">機能紹介</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">リアルタイム計算</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  要素を入力すると即座に基礎点とGOEを計算し、合計スコアを表示します
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">ルール準拠</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  ISUルールに基づいた正確な採点計算とバリデーション機能
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">共有機能</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  作成したプログラムをURLやJSONで簡単に共有・保存できます
+                </p>
+              </CardContent>
+            </Card>
           </div>
-
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 hover:bg-white/20 transition-all">
-            <h2 className="text-2xl font-semibold text-white mb-3">Modern</h2>
-            <p className="text-gray-300">
-              TypeScript, Tailwind CSS, and the latest web technologies
-            </p>
-          </div>
-        </section>
-
-        <div className="text-center mt-16">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors">
-            Get Started
-          </button>
         </div>
       </div>
     </main>
