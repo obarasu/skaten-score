@@ -49,7 +49,7 @@ export function calculateComboGOE(atoms: JumpAtom[], goeInput: number): number {
   
   atoms.forEach(atom => {
     if (atom.call && atom.call !== 'none') {
-      const penalty = comboData.callPenalties[atom.call];
+      const penalty = comboData.callPenalties[atom.call as keyof typeof comboData.callPenalties];
       if (penalty) {
         totalPenalty += penalty;
       }
