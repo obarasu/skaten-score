@@ -97,13 +97,13 @@ export function ComboBuilder({ atoms, onChange, maxJumps = 3 }: ComboBuilderProp
   return (
     <Card>
       <CardHeader>
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <CardTitle className="text-lg">コンボジャンプ</CardTitle>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {templates.length > 0 && (
               <Dialog open={showTemplates} onOpenChange={setShowTemplates}>
                 <DialogTrigger asChild>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" className="text-xs sm:text-sm">
                     テンプレート
                   </Button>
                 </DialogTrigger>
@@ -114,7 +114,7 @@ export function ComboBuilder({ atoms, onChange, maxJumps = 3 }: ComboBuilderProp
                       よく使用されるコンボを選択できます
                     </DialogDescription>
                   </DialogHeader>
-                  <div className="grid grid-cols-2 gap-2 mt-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
                     {templates.map((template, index) => (
                       <Button
                         key={index}
@@ -123,7 +123,7 @@ export function ComboBuilder({ atoms, onChange, maxJumps = 3 }: ComboBuilderProp
                         className="h-auto p-3 text-left"
                       >
                         <div>
-                          <div className="font-medium">{template.label}</div>
+                          <div className="font-medium text-sm">{template.label}</div>
                           <div className="text-xs text-gray-500">
                             {formatComboLabel(template.atoms)}
                           </div>
@@ -138,10 +138,10 @@ export function ComboBuilder({ atoms, onChange, maxJumps = 3 }: ComboBuilderProp
               onClick={addJump}
               disabled={atoms.length >= maxJumps}
               size="sm"
-              className="flex items-center gap-1"
+              className="flex items-center gap-1 text-xs sm:text-sm"
             >
               <Plus className="h-4 w-4" />
-              ジャンプ追加
+              <span className="hidden sm:inline">ジャンプ</span>追加
             </Button>
           </div>
         </div>
@@ -153,12 +153,12 @@ export function ComboBuilder({ atoms, onChange, maxJumps = 3 }: ComboBuilderProp
           </div>
         ) : (
           <>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
               {atoms.map((atom, index) => (
                 <div key={index} className="relative">
                   <Badge
                     variant={validation.valid ? "default" : "destructive"}
-                    className="cursor-pointer hover:bg-opacity-80 px-3 py-2 text-sm flex items-center gap-2"
+                    className="cursor-pointer hover:bg-opacity-80 px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm flex items-center gap-1 sm:gap-2"
                     onClick={() => editJump(index)}
                   >
                     <span>{getAtomLabel(atom)}</span>
@@ -230,7 +230,7 @@ export function ComboBuilder({ atoms, onChange, maxJumps = 3 }: ComboBuilderProp
             
             {editingAtom && (
               <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label>回転数</Label>
                     <Select
@@ -312,11 +312,11 @@ export function ComboBuilder({ atoms, onChange, maxJumps = 3 }: ComboBuilderProp
                   </Select>
                 </div>
                 
-                <div className="flex justify-end gap-2 pt-4">
-                  <Button variant="outline" onClick={cancelEdit}>
+                <div className="flex flex-col sm:flex-row justify-end gap-2 pt-4">
+                  <Button variant="outline" onClick={cancelEdit} className="order-2 sm:order-1">
                     キャンセル
                   </Button>
-                  <Button onClick={saveEdit}>
+                  <Button onClick={saveEdit} className="order-1 sm:order-2">
                     保存
                   </Button>
                 </div>
