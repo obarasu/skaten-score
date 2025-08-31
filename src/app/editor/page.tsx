@@ -75,24 +75,36 @@ function EditorPageContent() {
     <main className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <Button
-              variant="outline"
-              onClick={() => router.push('/')}
-              className="flex items-center gap-2 w-fit"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              戻る
-            </Button>
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-bold">プログラム編集</h1>
-              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
-                {classConfig.label} - {program.discipline === 'SP' ? 'ショートプログラム' : 'フリースケーティング'}
-              </p>
+          <div className="flex items-center justify-between w-full lg:w-auto">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <Button
+                variant="outline"
+                onClick={() => router.push('/')}
+                className="flex items-center gap-2 w-fit"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                戻る
+              </Button>
+              <div>
+                <h1 className="text-2xl sm:text-3xl font-bold">プログラム編集</h1>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
+                  {classConfig.label} - {program.discipline === 'SP' ? 'ショートプログラム' : 'フリースケーティング'}
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex flex-wrap gap-2 lg:hidden">
+              <Button
+                onClick={handleShare}
+                className="flex items-center gap-2 text-xs sm:text-sm"
+              >
+                <Share2 className="h-4 w-4" />
+                共有
+              </Button>
             </div>
           </div>
           
-          <div className="flex flex-wrap gap-2">
+          <div className="hidden lg:flex flex-wrap gap-2">
             <Button
               onClick={handleShare}
               className="flex items-center gap-2 text-xs sm:text-sm"
