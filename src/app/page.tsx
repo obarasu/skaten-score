@@ -33,10 +33,10 @@ export default function Home() {
       <div className="container mx-auto px-4 py-16">
         <header className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Skaten Score Calculator
+            スケート基礎点計算ツール
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300">
-            フィギュアスケート得点計算システム
+            参照：ISU Communication No. 2656（2024‑25シーズン）
           </p>
         </header>
 
@@ -73,43 +73,6 @@ export default function Home() {
           </CardContent>
         </Card>
 
-        <div className="mt-12 max-w-4xl mx-auto">
-          <h2 className="text-2xl font-semibold mb-6 text-center">機能紹介</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">リアルタイム計算</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  要素を入力すると即座に基礎点とGOEを計算し、合計スコアを表示します
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">ルール準拠</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  ISUルールに基づいた正確な採点計算とバリデーション機能
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">共有機能</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  作成したプログラムをURLやJSONで簡単に共有・保存できます
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
       </div>
     </main>
   );

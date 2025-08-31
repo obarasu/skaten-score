@@ -22,7 +22,7 @@ interface JumpPickerProps {
 }
 
 export function JumpPicker({ value, onChange }: JumpPickerProps) {
-  const [isCombo, setIsCombo] = useState(value?.atoms?.length > 1 || false);
+  const [isCombo, setIsCombo] = useState((value?.atoms?.length || 0) > 1);
   
   const defaultJump: JumpElement = {
     kind: 'jump',
